@@ -19,11 +19,17 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="shader.cpp">
-      <Filter>Resource Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
   </ItemGroup>
