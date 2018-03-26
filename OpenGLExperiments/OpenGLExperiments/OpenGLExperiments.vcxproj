@@ -79,7 +79,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)/../OpenGLResources/GLFW/lib-vc2015;$(SolutionDir)/../OpenGLResources/GLEW/lib/Release/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -102,7 +102,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)/../OpenGLResources/GLFW/lib-vc2015;$(SolutionDir)/../OpenGLResources/GLEW/lib/Release/Win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -126,8 +126,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controls.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="texture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="uvtemplate.DDS" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OpenGLExperiments.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TextureFragmentShader.fragmentshader" />
+    <None Include="TransformVertexShader.vertexshader" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

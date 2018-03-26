@@ -38,5 +38,26 @@
     <ClInclude Include="controls.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="uvtemplate.DDS">
+      <Filter>Source Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OpenGLExperiments.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TextureFragmentShader.fragmentshader">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="TransformVertexShader.vertexshader">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>
