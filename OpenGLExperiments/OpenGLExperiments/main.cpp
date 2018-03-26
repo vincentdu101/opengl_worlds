@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <vector>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
@@ -12,6 +13,10 @@ using namespace glm;
 #include "shader.h"
 #include "texture.h"
 #include "controls.h"
+#include "objLoader.h"
+
+int width = 2048;
+int height = 1536;
 
 int main(void) {
 
@@ -29,7 +34,7 @@ int main(void) {
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 	// open a window and create its opengl context
-	window = glfwCreateWindow(1024, 768, "First Person", NULL, NULL);
+	window = glfwCreateWindow(width, height, "First Person", NULL, NULL);
 	if (window == NULL) {
 		fprintf(stderr, "failed to open glfw window. if you have an intel GPU, they are not 3.3 compatible. Try the 2.1 version");
 		getchar();
@@ -56,7 +61,7 @@ int main(void) {
 
 	// set the mouse at the center of the screen
 	glfwPollEvents();
-	glfwSetCursorPos(window, 1024 / 2, 768 / 2);
+	glfwSetCursorPos(window, width / 2, height / 2);
 
 	// dark blue background
 	glClearColor(0.0f, 0.0f, 0.4f, 0.0f);
@@ -85,6 +90,12 @@ int main(void) {
 
 	// get a handle for our myTextureSampler uniform
 	GLuint TextureID = glGetUniformLocation(programID, "myTextureSampler");
+
+	// read our .obj file
+	std::vector<glm::vec3> vertices;
+	std::vector<glm::vec2> uvs;
+	std::vector<glm::vec3> normals;
+	bool res = loadObj("materials/sol.obj", vertices, uvs, normals);
 
 	// our vertices, tree consecutive floats give a 3d vertex, three consecutive vertices give a triangle
 	// a cube has 6 faces with 2 triangles each, so this makes 6 * 2 = 12 triangles, and 12 * 3 vertices
@@ -186,7 +197,7 @@ int main(void) {
 		glUseProgram(programID);
 
 		// Compute the MVP matrix from keyboard and mouse input
-		computeMatricesFromInputs();
+		computeMatricesFromInputs(width, height);
 		glm::mat4 ProjectionMatrix = getProjectionMatrix();
 		glm::mat4 ViewMatrix = getViewMatrix();
 		glm::mat4 ModelMatrix = glm::mat4(1.0);

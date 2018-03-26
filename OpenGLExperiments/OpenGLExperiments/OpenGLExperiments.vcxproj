@@ -121,24 +121,28 @@
   <ItemGroup>
     <ClCompile Include="controls.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="objLoader.cpp" />
     <ClCompile Include="shader.cpp" />
     <ClCompile Include="texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controls.h" />
+    <ClInclude Include="objLoader.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="solmarbre1.png" />
+    <Image Include="sol_marbre.png" />
     <Image Include="uvtemplate.DDS" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="OpenGLExperiments.rc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="TextureFragmentShader.fragmentshader" />
     <None Include="TransformVertexShader.vertexshader" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="sol.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

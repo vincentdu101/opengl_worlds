@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Resource Files\materials">
+      <UniqueIdentifier>{15c97652-2856-4314-9591-d7f7b6c0f954}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -27,12 +30,12 @@
     <ClCompile Include="controls.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="objLoader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="shader.h">
-      <Filter>Resource Files</Filter>
-    </ClInclude>
-    <ClInclude Include="texture.h">
       <Filter>Resource Files</Filter>
     </ClInclude>
     <ClInclude Include="controls.h">
@@ -41,16 +44,23 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="uvtemplate.DDS">
-      <Filter>Source Files</Filter>
-    </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="OpenGLExperiments.rc">
+    <ClInclude Include="texture.h">
       <Filter>Resource Files</Filter>
-    </ResourceCompile>
+    </ClInclude>
+    <ClInclude Include="objLoader.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="sol_marbre.png">
+      <Filter>Resource Files\materials</Filter>
+    </Image>
+    <Image Include="solmarbre1.png">
+      <Filter>Resource Files\materials</Filter>
+    </Image>
+    <Image Include="uvtemplate.DDS">
+      <Filter>Resource Files\materials</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="TextureFragmentShader.fragmentshader">
@@ -59,5 +69,10 @@
     <None Include="TransformVertexShader.vertexshader">
       <Filter>Source Files</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="sol.obj">
+      <Filter>Resource Files\materials</Filter>
+    </Object>
   </ItemGroup>
 </Project>
