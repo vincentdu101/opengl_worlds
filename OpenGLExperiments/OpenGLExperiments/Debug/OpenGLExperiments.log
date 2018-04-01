@@ -1,7 +1,3 @@
-﻿  objLoader.cpp
-c:\users\vincentdu\desktop\opengl\openglroot\openglexperiments\openglexperiments\objloader.cpp(47): warning C4473: 'fscanf_s' : not enough arguments passed for format string
-  c:\users\vincentdu\desktop\opengl\openglroot\openglexperiments\openglexperiments\objloader.cpp(47): note: placeholders and their parameters expect 2 variadic arguments, but 1 were provided
-  c:\users\vincentdu\desktop\opengl\openglroot\openglexperiments\openglexperiments\objloader.cpp(47): note: the missing variadic argument 2 is required by format string '%s'
-  c:\users\vincentdu\desktop\opengl\openglroot\openglexperiments\openglexperiments\objloader.cpp(47): note: this argument is used as a buffer size
-c:\users\vincentdu\desktop\opengl\openglroot\openglexperiments\openglexperiments\objloader.cpp(118): warning C4715: 'loadObj': not all control paths return a value
-sol.obj : fatal error LNK1107: invalid or corrupt file: cannot read at 0x2A60
+﻿  main.cpp
+  OpenGLExperiments.vcxproj -> C:\Users\vincentdu\Desktop\opengl\OpenGLRoot\OpenGLExperiments\Debug\OpenGLExperiments.exe
+  OpenGLExperiments.vcxproj -> C:\Users\vincentdu\Desktop\opengl\OpenGLRoot\OpenGLExperiments\Debug\OpenGLExperiments.pdb (Partial PDB)

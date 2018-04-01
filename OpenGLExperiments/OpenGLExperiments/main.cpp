@@ -95,7 +95,7 @@ int main(void) {
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> uvs;
 	std::vector<glm::vec3> normals;
-	bool res = loadObj("materials/sol.obj", vertices, uvs, normals);
+	// bool res = loadObj("materials/sol.obj", vertices, uvs, normals);
 
 	// our vertices, tree consecutive floats give a 3d vertex, three consecutive vertices give a triangle
 	// a cube has 6 faces with 2 triangles each, so this makes 6 * 2 = 12 triangles, and 12 * 3 vertices
@@ -127,15 +127,19 @@ int main(void) {
 		1.0f,-1.0f,-1.0f,
 		1.0f, 1.0f, 1.0f,
 		1.0f,-1.0f, 1.0f,
+
+		// part of 9
+		1.0f, 1.0f, 1.0f,
+		-1.0f, 1.0f, 1.0f,
+		1.0f,-1.0f, 1.0f,
+
+		// top part
 		1.0f, 1.0f, 1.0f,
 		1.0f, 1.0f,-1.0f,
 		-1.0f, 1.0f,-1.0f,
 		1.0f, 1.0f, 1.0f,
 		-1.0f, 1.0f,-1.0f,
-		-1.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f,
-		-1.0f, 1.0f, 1.0f,
-		1.0f,-1.0f, 1.0f
+		-1.0f, 1.0f, 1.0f
 	};
 
 	// Two UV coordinatesfor each vertex. They were created with Blender.
