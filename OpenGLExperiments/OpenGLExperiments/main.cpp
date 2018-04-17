@@ -14,6 +14,7 @@ using namespace glm;
 #include "texture.h"
 #include "controls.h"
 #include "objLoader.h"
+#include "Plane.h"
 
 int width = 2048;
 int height = 1536;
@@ -142,6 +143,8 @@ int main(void) {
 		-1.0f, 1.0f, 1.0f
 	};
 
+	GLfloat *planeCoords = generatePlaneVertices(5);
+
 	// Two UV coordinatesfor each vertex. They were created with Blender.
 	static const GLfloat g_uv_buffer_data[] = {
 		0.000059f, 0.000004f,
@@ -192,6 +195,11 @@ int main(void) {
 	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_uv_buffer_data), g_uv_buffer_data, GL_STATIC_DRAW);
 
+	GLuint planeBuffer;
+	glGenBuffers(1, &planeBuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, planeBuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(*planeCoords), planeCoords, GL_STATIC_DRAW);
+
 	do {
 
 		// Clear the screen
@@ -241,11 +249,25 @@ int main(void) {
 			(void*)0                          // array buffer offset
 		);
 
+		// 3rd attribute buffer : UVs
+		glEnableVertexAttribArray(2);
+		glBindBuffer(GL_ARRAY_BUFFER, planeBuffer);
+		glVertexAttribPointer(
+			0,                                // attribute. No particular reason for 1, but must match the layout in the shader.
+			2,                                // size : U+V => 2
+			GL_FLOAT,                         // type
+			GL_FALSE,                         // normalized?
+			0,                                // stride
+			(void*)0                          // array buffer offset
+		);
+
 		// Draw the triangle !
 		glDrawArrays(GL_TRIANGLES, 0, 12 * 3); // 12*3 indices starting at 0 -> 12 triangles
+		//glDrawArrays(GL_TRIANGLES, 12 * 3 + sizeof(g_uv_buffer_data), 1000);
 
 		glDisableVertexAttribArray(0);
 		glDisableVertexAttribArray(1);
+		glDisableVertexAttribArray(2);
 
 		// Swap buffers
 		glfwSwapBuffers(window);
@@ -258,6 +280,7 @@ int main(void) {
 	// Cleanup VBO and shader
 	glDeleteBuffers(1, &vertexbuffer);
 	glDeleteBuffers(1, &uvbuffer);
+	glDeleteBuffers(1, &planeBuffer);
 	glDeleteProgram(programID);
 	glDeleteTextures(1, &TextureID);
 	glDeleteVertexArrays(1, &VertexArrayID);
